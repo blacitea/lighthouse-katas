@@ -6,7 +6,8 @@ const numberOfVowels = function(data) {
   // check each character from data against each element in the vowels array
   for(let i = 0; i < data.length; i ++) {
     for(let v = 0; v < vowels.length; v ++) {
-      if(data[i] === vowels[v]) {
+      // added .toLowerCase to ensure correct comparison
+      if(data[i].toLowerCase() === vowels[v]) {
         counter += 1;
       }; 
     };
