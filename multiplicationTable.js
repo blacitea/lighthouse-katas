@@ -8,10 +8,9 @@ const multiplicationTable = function(maxValue) {
     for( let y = 1; y <= maxValue; y ++) {
         list += (x * y);
       };
+  // move to new line at the end of every inner loop    
     list += '\n';
   };
-
-  console.log(list);
   return list;
 }
 
