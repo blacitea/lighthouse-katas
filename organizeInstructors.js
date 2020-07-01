@@ -9,23 +9,18 @@ const organizeInstructors = function (instructors) {
 
   */
   
-  let organized = {};
+  let courseList = {};
+  let instructorList = [];
 
   for (let i = 0; i < instructors.length; i++) {
-    let course = instructors[i].course;
-    console.log(course);
-    if (organized.course === instructors[i].course) {
-      organized.course.push(instructors[i]['name']);
-      console.log(`property already existed when ${organized.course} is under organzied, and ${instructors[i].course} from instructor`)
+    if (!(instructors[i]['course'] in courseList)) {
+      courseList[instructors[i]['course']] = [];
+      courseList[instructors[i]['course']].push(instructors[i]['name']);
     } else {
-      organized[instructors[i][course]] = [];
-      console.log(organized);
-      organized[instructors[i][course]].push(instructors[i]['name']);
+      courseList[instructors[i]['course']].push(instructors[i]['name']);
     }
   };
-  
-  return organized;
-
+  return courseList;
 };
 
 console.log(organizeInstructors([
@@ -33,4 +28,11 @@ console.log(organizeInstructors([
   {name: "Victoria", course: "Web"},
   {name: "Karim", course: "Web"},
   {name: "Donald", course: "Web"}
+]));
+
+console.log(organizeInstructors([
+  {name: "Brendan", course: "Blockchain"},
+  {name: "David", course: "Web"},
+  {name: "Martha", course: "iOS"},
+  {name: "Carlos", course: "Web"}
 ]));
