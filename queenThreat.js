@@ -1,44 +1,43 @@
 const generateBoard = function (whiteQueen, blackQueen) {
   let board = [];
+  // as board is 8 x 8 in size, use nested for-loop to push 8 rows
   for (let y = 0; y < 8; y++) {
     board.push([])
+    // in each row, push 8 times to form 8 column
     for (let x = 0; x < 8; x++) {
-      if (x === whiteQueen[1] && y === whiteQueen[0] ||
-          x === blackQueen[1] && y === blackQueen[0]) {
+      // when [y][x] equals position of queen, value = 1
+      if (x === whiteQueen[1] && y === whiteQueen[0] || x === blackQueen[1] && y === blackQueen[0]) {
         board[y].push(1);
       } else {
         board[y].push(0);
       };
     };
   };
+  return board;
+};
+  
+const queenThreat = function (board) {
+  // array to store positions of queens in board
+  let queen = [];
+  for (let y = 0; y < board.length; y++) {
+    for (let x = 0; x < board[y].length; x++) {
+      // when identified, push position of queen as array into the queen array
+      if (board[y][x] === 1) {
+        queen.push([y, x]);
+      };
+    }
+  };
   let threat = false;
-  // for horizontal
-  let horizontal = function (accu, currV) {
-    return accu + currV;
-  };
-  
-  let sum = board[whiteQueen[0]].reduce(horizontal);
-  if (sum >= 2) {
-    threat = true;
-  }
-  
-  // for vertical
-  let VerticalSum = 0;
-  for (let y = 0; y < 8; y++) {
-    VerticalSum += board[y][whiteQueen[1]];
-    console.log(whiteQueen[1], y, sum);
-  };
-  if (VerticalSum >= 2) {
+  // if queen[0] and queen[1] share row/column/diagonal line, troggle threat to true
+  if (queen[0][0] === queen[1][0] || queen[0][1] === queen[1][1] || Math.abs(queen[0][0] - queen[1][0]) === Math.abs(queen[0][1] - queen[1][1])) {
     threat = true;
   };
+  return threat;
+};
 
-  // for diagonal
-  console.log(board);
-  console.log(threat);
 
-}
-
-let whiteQueen = [2, 5];
-let blackQueen = [2, 1];
+let whiteQueen = [5, 4];
+let blackQueen = [6, 5];
 let generatedBoard = generateBoard(whiteQueen, blackQueen);
 console.log(generatedBoard);
+console.log(queenThreat(generatedBoard));
