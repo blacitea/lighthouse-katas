@@ -11,14 +11,20 @@ const blocksAway = function (directions) {
     // switch to calculate orientation after turn
     switch (directions[i]) {
       case 'left':
-        // ensure taxi stays in grid
+        /*
+        ensure taxi stays in grid
+        if taxi at x = 0 (west edge) and facing north, no further left turn allowed, just move up
+        */
         if (location[0] === 0 && direction === 0) {
           break;
         }
         direction -= 90;
         break;
       case 'right':
-        // ensure taxi stays in grid
+        /* 
+        ensure taxi stays in grid
+        if taxi at y = 0 (south edge) and facing right, no further right turn allowed, just move right
+        */
         if (location[1] === 0 && direction === 90) {
           break;
         }
