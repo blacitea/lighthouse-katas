@@ -9,17 +9,17 @@ let nonNumAttempts = [];
 while (pastAttempts[pastAttempts.length - 1] != numRan) {
   // sigint: true let user exit with ctrl+c if desired
   let prompt = require("prompt-sync")({sigint: true});
-  let answer = prompt("Make a guess (Between 0 - 100): ");
+  let answer = prompt("Guess a number: ");
   // if input not number (match 0-9), error
   if (!(answer.match(/[0-9]+/)) || Number(answer) === 'NaN') {
     nonNumAttempts.push(answer)
-    console.log('Not a number! Try again')
+    console.log('Not a number! Try again!')
   } else {
     // input type is string, convert to number for comparison
     let checkAnswer = Number(answer);
     // check if same guess was made before
     if (pastAttempts.includes(checkAnswer)) {
-      console.log('Already Guesses');
+      console.log('Already Guessed!');
     } else {
       // if guess is valid, record it in pastAttempt and counter +1
       pastAttempts.push(checkAnswer);
