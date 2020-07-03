@@ -7,12 +7,11 @@ let nonNumAttempts = [];
 
 // when latest guess is not correct, keep prompting the user
 while (pastAttempts[pastAttempts.length - 1] != numRan) {
-  console.log(pastAttempts);
   // sigint: true let user exit with ctrl+c if desired
   let prompt = require("prompt-sync")({sigint: true});
   let answer = prompt("Make a guess (Between 0 - 100): ");
   // if input not number (match 0-9), error
-  if (!(answer.match(/[0-9]+/))) { // My attempt to fix the bug ~~ || Number(answer) === 'NaN') {
+  if (!(answer.match(/[0-9]+/)) || Number(answer) === 'NaN') {
     nonNumAttempts.push(answer)
     console.log('Not a number! Try again')
   } else {
