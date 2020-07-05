@@ -10,8 +10,9 @@ while (pastAttempts[pastAttempts.length - 1] != numRan) {
   // sigint: true let user exit with ctrl+c if desired
   let prompt = require("prompt-sync")({sigint: true});
   let answer = prompt("Guess a number: ");
-  // if input not number (match 0-9), error
-  if (!(answer.match(/[0-9]+/)) || Number(answer) === 'NaN') {
+  console.log(pastAttempts);
+  // if input contains non number, error
+  if (!(answer.match(/^[0-9]+$/))) {
     nonNumAttempts.push(answer)
     console.log('Not a number! Try again!')
   } else {
