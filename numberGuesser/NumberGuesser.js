@@ -7,18 +7,19 @@ let nonNumAttempts = [];
 
 // when latest guess is not correct, keep prompting the user
 while (pastAttempts[pastAttempts.length - 1] != numRan) {
+  console.log(pastAttempts);
   // sigint: true let user exit with ctrl+c if desired
   let prompt = require("prompt-sync")({sigint: true});
   let answer = prompt("Guess a number: ");
-  console.log(pastAttempts);
-  // if input contains non number, error
-  if (!(answer.match(/^[0-9]+$/))) {
-    nonNumAttempts.push(answer)
+  // input type is string, convert to number for comparison
+  let checkAnswer = Number(answer);
+  // check if input is number
+  if (isNaN(checkAnswer) || answer !== null) {
     console.log('Not a number! Try again!')
   } else {
-    // input type is string, convert to number for comparison
-    let checkAnswer = Number(answer);
     // check if same guess was made before
+    console.log(`answer is ${answer}`);
+    console.log(`checkAnswer is ${checkAnswer}`);
     if (pastAttempts.includes(checkAnswer)) {
       console.log('Already Guessed!');
     } else {
