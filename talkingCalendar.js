@@ -19,13 +19,13 @@ const talkingCalendar = function(date) {
   let month = monthName[monthNum - 1];
 
   // Step 3 - add ordinal indicator(suffixes) to day
-  if( day === 1 | day === 21 | day === 31) {
+  if (day === 1 | day === 21 | day === 31) {
     day = day + 'st';
   } else
-  if( day === 2 | day === 22) {
+  if (day === 2 | day === 22) {
     day = day + 'nd';
   } else
-  if( day === 3 | day === 23) {
+  if (day === 3 | day === 23) {
     day = day + 'rd';
   } else {
     day = day + 'th';
@@ -33,7 +33,7 @@ const talkingCalendar = function(date) {
 
   // Step 4 - use template literal to return converted date
   return `${month} ${day}, ${year}`;
-}
+};
 
 
 

@@ -5,14 +5,14 @@ const repeatNumbers = function(data) {
   data.forEach(element => {
     let a = element[0];
     let b = element[1];
-    for(let t = 0; t < b; t ++) {
-      answer = answer + a; 
-    };
+    for (let t = 0; t < b; t ++) {
+      answer = answer + a;
+    }
     answer = answer + ', ';
-    });
+  });
   // remove ", " from end of string
   return answer.substring(0, answer.length - 2);
-}
+};
 
 console.log(repeatNumbers([[1, 10]]));
 console.log(repeatNumbers([[1, 2], [2, 3]]));

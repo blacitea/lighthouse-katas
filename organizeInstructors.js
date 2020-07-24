@@ -1,4 +1,4 @@
-const organizeInstructors = function (instructors) {
+const organizeInstructors = function(instructors) {
   /* Concept mapping
   Input = instructors = an array of objects, each object have properties name & course
   Output = new object = number of property (course name), value of property is an array with the instructors name
@@ -19,7 +19,7 @@ const organizeInstructors = function (instructors) {
     } else {
       courseList[instructors[i]['course']].push(instructors[i]['name']);
     }
-  };
+  }
   return courseList;
 };
 

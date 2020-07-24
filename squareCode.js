@@ -1,14 +1,14 @@
-const squareCode = function (message) {
+const squareCode = function(message) {
   /* Concept map
-  message = string, 
-  By squareRoot the string.length, round up the ans to calculate max lenght of each row, 
+  message = string,
+  By squareRoot the string.length, round up the ans to calculate max lenght of each row,
   Then the char of each column in every row encode into 1 word (i+8)
   */
   
   // Replace whitespace with regexp / /g
   message = message.replace(/ /g, '');
 
-  // Determine the number of rows by round up the sqaure root of string length 
+  // Determine the number of rows by round up the sqaure root of string length
   let row = Math.ceil(Math.sqrt(message.length));
 
   // Array the characters into sqaure based on row
@@ -30,11 +30,11 @@ const squareCode = function (message) {
     for (let c = 0; c < message.length; c++) {
       if (c === r | c % row === r) {
         word += message[c];
-      };
-    };
+      }
+    }
     codedMessage = codedMessage + word + ' ';
     word = '';
-  };
+  }
   return codedMessage;
 };
 console.log(squareCode("chill out"));

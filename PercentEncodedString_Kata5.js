@@ -5,21 +5,21 @@ const urlEncode = function(text) {
   let textArray = text.split(" ");
   // To store the new array with empty strings removed
   let noSpaceArray = [];
-  for(let i = 0; i < textArray.length; i ++) {
+  for (let i = 0; i < textArray.length; i ++) {
   // Only push to noSpaceArray if string is not empty
-    if(textArray[i]) {
+    if (textArray[i]) {
       noSpaceArray.push(textArray[i]);
-    };
-  };
+    }
+  }
   // Concat %20 to string after each element from noSpaceArray
-  for( let i = 0; i < noSpaceArray.length; i ++) {
-    if(i !== noSpaceArray.length - 1) {
+  for (let i = 0; i < noSpaceArray.length; i ++) {
+    if (i !== noSpaceArray.length - 1) {
       encoded += noSpaceArray[i] + '%20';
     } else {
-  // For last element from the array, no %20 is concat
+      // For last element from the array, no %20 is concat
       encoded += noSpaceArray[i];
-    };
-  };
+    }
+  }
   // Return the encoded string
   return encoded;
 };

@@ -1,31 +1,31 @@
-const whereCanIPark = function (spots, vehicle) {
+const whereCanIPark = function(spots, vehicle) {
 // spots is an array with nested arrays
 // Regular can be in R, Small can be in R & S, Motorcycle can be in R, S & M
 // Lower case letter means not available
 
-// array to store possible spots
-let canPark = [];
-// for loop for 1st layer of array aka ROWS/Y
-for ( let y = 0; y < spots.length; y ++) {
-// for loop for 2nd layer or array aka COLUMNS/X
-  for ( let x = 0; x < spots[y].length; x ++) {
-    if ( spots[y][x] === 'R') {
-      canPark.push([x, y]);
-    } else if ( spots[y][x] === 'S' && vehicle === 'small') {
-      canPark.push([x, y]);
-    } else if ( spots[y][x] === 'S' && vehicle === 'motorcycle') {
-      canPark.push([x, y]);
-    } else if ( spots[y][x] === 'M' && vehicle === 'motorcycle') {
-      canPark.push([x, y]);
-    } else {
-    };
-  };
+  // array to store possible spots
+  let canPark = [];
+  // for loop for 1st layer of array aka ROWS/Y
+  for (let y = 0; y < spots.length; y ++) {
+    // for loop for 2nd layer or array aka COLUMNS/X
+    for (let x = 0; x < spots[y].length; x ++) {
+      if (spots[y][x] === 'R') {
+        canPark.push([x, y]);
+      } else if (spots[y][x] === 'S' && vehicle === 'small') {
+        canPark.push([x, y]);
+      } else if (spots[y][x] === 'S' && vehicle === 'motorcycle') {
+        canPark.push([x, y]);
+      } else if (spots[y][x] === 'M' && vehicle === 'motorcycle') {
+        canPark.push([x, y]);
+      } else {
+      }
+    }
+  }
+  // Any available spot? If true, return 1st of the array. If false, return false
+  return (
+    canPark.length !== 0 ? canPark[0] : false
+  );
 };
-// Any available spot? If true, return 1st of the array. If false, return false
-return (
-  canPark.length !== 0? canPark[0] : false
-)
-}
 
 console.log(whereCanIPark(
   [
@@ -61,4 +61,4 @@ console.log(whereCanIPark(
     ['S', 'r', 'S', 'M', 'm', 'S']
   ],
   'motorcycle'
-))
+));

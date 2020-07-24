@@ -1,18 +1,18 @@
-const urlDecode = function (text) {
+const urlDecode = function(text) {
   // empty array to store different key-value pairs
   let arrays = [];
   for (let t = 0; t < text.length; t++) {
   // Step 1, check if multiple key-value pairs presence
     if (text.includes('&')) {
       // if yes, push each key-value pair into array by slice based on indexOf '&' found
-        let pair = text.slice(0, text.indexOf('&'));
-        arrays.push(pair);
-        text = text.slice(text.indexOf('&') + 1);
+      let pair = text.slice(0, text.indexOf('&'));
+      arrays.push(pair);
+      text = text.slice(text.indexOf('&') + 1);
     } else {
       // if not, push the single pair into array
-        arrays.push(text);
-        text -= text;
-      };
+      arrays.push(text);
+      text -= text;
+    }
   }
   // Step 2, seperate key & value for each pair and store in object
   let object = {};
@@ -24,10 +24,10 @@ const urlDecode = function (text) {
     let regexp = /%20/gi;
     if (objValue.includes('%20')) {
       objValue = objValue.replace(regexp, ' ');
-    };
+    }
     // add key-value pair to object
     object[objKey] = objValue;
-  };
+  }
   // Step 3, return result
   return object;
 };

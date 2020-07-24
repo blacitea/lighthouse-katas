@@ -1,4 +1,4 @@
-const makeCase = function (input, style) {
+const makeCase = function(input, style) {
   /* Concept map
   input = string, to be iterated base on provided case
   case = camel, pascal, snake, kebab, title, vowel, consonant, upper
@@ -11,36 +11,36 @@ const makeCase = function (input, style) {
   let vowelList = 'aeiou';
   // Step 2, an object to store all the casing styles
   let styleList = {
-    camel: function (string) {
+    camel: function(string) {
       for (let i = 0; i < string.length; i++) {
         if (string[i] === ' ') {
           inWork += string[i + 1].toUpperCase();
           i += 1;
         } else {
           inWork += string[i];
-        };
-      };
+        }
+      }
     },
-    pascal: function (string) {
+    pascal: function(string) {
       for (let i = 0; i < string.length; i++) {
         if (i === 0) {
-          inWork += string[i].toUpperCase()
+          inWork += string[i].toUpperCase();
         } else if (string[i] === ' ') {
           inWork += string[i + 1].toUpperCase();
           i += 1;
         } else {
           inWork += string[i];
-        };
-      };
+        }
+      }
     },
-    snake: function (string) {
+    snake: function(string) {
       inWork = string.replace(/ /g, '_');
     },
-    kebab: function (string) {
+    kebab: function(string) {
       inWork = string.replace(/ /g, '-');
     },
-    title: function (string) {
-      for (i = 0; i < string.length; i++) {
+    title: function(string) {
+      for (let i = 0; i < string.length; i++) {
         if (i === 0) {
           inWork += string[i].toUpperCase();
         } else if (string[i] === ' ') {
@@ -48,34 +48,34 @@ const makeCase = function (input, style) {
           i += 1;
         } else {
           inWork += string[i];
-        };
-      };
+        }
+      }
     },
-    vowel: function (string) {
-      for (i = 0; i < string.length; i++) {
+    vowel: function(string) {
+      for (let i = 0; i < string.length; i++) {
         if (vowelList.includes(string[i])) {
-            inWork += string[i].toUpperCase();
+          inWork += string[i].toUpperCase();
         } else {
-            inWork += string[i];
-        };
-      };
+          inWork += string[i];
+        }
+      }
     },
-    consonant: function (string) {
-      for (i = 0; i < string.length; i++) {
+    consonant: function(string) {
+      for (let i = 0; i < string.length; i++) {
         if (!(vowelList.includes(string[i]))) {
-            inWork += string[i].toUpperCase();
+          inWork += string[i].toUpperCase();
         } else {
-            inWork += string[i];
-        };
-      };
+          inWork += string[i];
+        }
+      }
     },
-    upper: function (string) {
+    upper: function(string) {
       inWork = string.toUpperCase();
     },
-    lower: function (string) {
+    lower: function(string) {
       inWork = string.toLowerCase();
     },
-  }
+  };
 
   // check if more than one style applies
   console.log(typeof style);
@@ -84,44 +84,44 @@ const makeCase = function (input, style) {
     return inWork;
   } else {
     for (let a = 0; a < style.length; a++) {
-  // if an array passed for style, loop through each style in the array
+      // if an array passed for style, loop through each style in the array
       switch (style[a]) {
-        case 'camel':
-          styleList[style[a]](input);
-          break;
-        case 'pascal':
-          styleList[style[a]](input);
-          break;
-        case 'snake':
-          styleList[style[a]](input);
-          break;
-        case 'kebab': 
-          styleList[style[a]](input);
-          break;
-        case 'title': 
-          styleList[style[a]](input);
-          break;
-        case 'vowel': 
-          styleList[style[a]](input);
-          break;
-        case 'consonant':
-          styleList[style[a]](input);
-          break;
-        case 'upper':
-          styleList[style[a]](input);
-          break;
-        case 'lower':
-          styleList[style[a]](input);
-          break;
-      };
+      case 'camel':
+        styleList[style[a]](input);
+        break;
+      case 'pascal':
+        styleList[style[a]](input);
+        break;
+      case 'snake':
+        styleList[style[a]](input);
+        break;
+      case 'kebab':
+        styleList[style[a]](input);
+        break;
+      case 'title':
+        styleList[style[a]](input);
+        break;
+      case 'vowel':
+        styleList[style[a]](input);
+        break;
+      case 'consonant':
+        styleList[style[a]](input);
+        break;
+      case 'upper':
+        styleList[style[a]](input);
+        break;
+      case 'lower':
+        styleList[style[a]](input);
+        break;
+      }
       // Reset inWork and reuse iterated string for 2nd iteration
       store = inWork;
       input = inWork;
       inWork = '';
-    };
+    }
     return store;
-  };
-}
+  }
+};
 
 console.log(makeCase("this is a string", "camel"));
 console.log(makeCase("this is a string", "pascal"));

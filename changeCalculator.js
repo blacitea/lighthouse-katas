@@ -25,22 +25,22 @@ const calculateChange = function(total, cash) {
     penny = {name: 'penny', value: 1}
   ];
   // For loop to go through each denominations
-  for( i = 0; i < denominations.length; i ++) {
+  for (i = 0; i < denominations.length; i ++) {
     let denoName = denominations[i].name;
     let count = 0;
-  // While loop - reduce amount & increase count
+    // While loop - reduce amount & increase count
     while (difference >= denominations[i].value) {
       difference -= denominations[i].value;
       count += 1;
-    };
-  // If denomination used, add property to the result object
-    if(count > 0) {
-    listOfChanges[denoName] = count;
+    }
+    // If denomination used, add property to the result object
+    if (count > 0) {
+      listOfChanges[denoName] = count;
     }
   }
   // Return result object
   return listOfChanges;
-}
+};
 
 
 console.log(calculateChange(2623, 4000));

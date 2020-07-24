@@ -11,11 +11,11 @@ const instructorWithLongestName = function(instructors) {
     course: ""
   };
   // Populate the array with instructors name
-  for(let i = 0; i < instructors.length; i ++) {
-    if( instructors[i].name.length > longestName.name.length) {
+  for (let i = 0; i < instructors.length; i ++) {
+    if (instructors[i].name.length > longestName.name.length) {
       longestName = instructors[i];
       console.log(longestName);
-    };
-  };
+    }
+  }
   return longestName;
 };

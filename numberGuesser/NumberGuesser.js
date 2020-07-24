@@ -15,7 +15,7 @@ while (pastAttempts[pastAttempts.length - 1] != numRan) {
   let checkAnswer = Number(answer);
   // check if input is number
   if (isNaN(checkAnswer) || answer !== null) {
-    console.log('Not a number! Try again!')
+    console.log('Not a number! Try again!');
   } else {
     // check if same guess was made before
     console.log(`answer is ${answer}`);
@@ -33,7 +33,7 @@ while (pastAttempts[pastAttempts.length - 1] != numRan) {
         checkAnswer > numRan ?
           console.log(`Too high!`) :
           console.log(`Too low!`);
-    };
-  }  
+    }
+  }
 }
 
